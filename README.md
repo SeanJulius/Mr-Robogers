@@ -13,3 +13,8 @@ Test: ""Should return list of numbers with 1s listed as "beep!", 2s as "boop! an
 code: beep(input) If count includes 1 , else if count includes 2, else if count incudes 3
 expected output: [0,Beep!,Boop!,Won't you be my neighbor?,4,5,6....]
 Test: "Test returned "Beep!", "Boop!", and "Won't you be my neighbor?"
+
+Test: ""Should return "Boop!" and "Won't you be my neighbor" at a hierarchy of substitutions"
+code: beep(input) If count includes 3 , else if count includes 2, else if count incudes 1
+expected output: [0,Beep!,Boop!,Won't you be my neighbor?,4,5,6....9, Beep!, Beep!, Boop!,Won't you be my neighbor?...]
+Test: "Test returned "Beep!", "Boop!", and "Won't you be my neighbor?"
