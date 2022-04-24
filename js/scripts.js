@@ -5,7 +5,10 @@ function beep(input) {
   for(count = 0; count <= input; count++) {
     count = count.toString();
     if (count.includes('1')) {
-      numberStr =numberStr.concat(",Beep!");
+      numberStr = numberStr.concat(", Beep!");
+    }
+    else if (count.includes('2')) {
+      numberStr = numberStr.concat(", Boop!");
     }
     else { 
       if (count !== '0') {
