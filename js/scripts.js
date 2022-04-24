@@ -10,6 +10,9 @@ function beep(input) {
     else if (count.includes('2')) {
       numberStr = numberStr.concat(", Boop!");
     }
+    else if (count.includes('3')) {
+      numberStr = numberStr.concat(", Won't you be my neighbor?");
+    }
     else { 
       if (count !== '0') {
       numberStr = numberStr.concat(", ")
