@@ -1,3 +1,5 @@
+//Business Logic
+
 function beep(input) {
   let numberStr = "";
   for(count = 0; count <= input; count++) {
@@ -14,3 +16,14 @@ function beep(input) {
   }
   return numberStr;
 }
+
+// User Interface Logic
+
+$(document).ready(function() {
+  $("form#formNumber").submit(function(event) {
+    event.preventDefault();
+    let userInput = $("#userInput").val();
+    let outputString = beep(userInput);
+    $("ul#output").append("<li>",outputString,"</li>");
+  });
+});
