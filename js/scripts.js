@@ -2,29 +2,26 @@
 
 //First test should return "1" with Beep!
 function beep(input) {
-  let numberStr = "";
-  for(count = 0; count <= input; count++) {
-    count = count.toString();
-    if (count.includes('3')) {
-      numberStr = numberStr.concat(", Won't you be my neighbor?");
+  let returnArray = [];
+  for(let i = 0; i <= input; i++) {
+    let index = i.toString();
+    if (index.includes('3')) {
+      returnArray.push(", Won't you be my neighbor?");
     }
     //Second test should return "2" with Boop!
-    else if (count.includes('2')) {
-      numberStr = numberStr.concat(", Boop!");
+    else if (index.includes('2')) {
+      returnArray.push(", Boop!");
     }
     //Third test should return "3" with Won't you be my neighbor
-    else if (count.includes('1')) {
-      numberStr = numberStr.concat(", Beep!");
+    else if (index.includes('1')) {
+      returnArray.push(", Beep!");
     }
     //Fourth test should return the hierarchy of substitutions
     else {
-      if (count !== '0') {
-        numberStr = numberStr.concat(", ")
-      }
-      numberStr = numberStr.concat(count);
+      returnArray.push(i);
     }
   }
-  return numberStr;
+  return returnArray;
 }
 
 // User Interface Logic
@@ -33,7 +30,15 @@ $(document).ready(function() {
   $("form#formNumber").submit(function(event) {
     event.preventDefault();
     let userInput = $("#userInput").val();
-    let outputString = beep(userInput);
-    $("ul#output").append("<li>",outputString,"</li>");
+    let userArray = beep(userInput);
+    let beepStr = "";
+    userArray.forEach(function(element, index, array) {
+      if(index !== array.length -1) {
+        beepStr =beepStr + element + ", ";
+      } else {
+        beepStr = beepStr + element;
+      }
+    })
+    $("ul#output").append("<li>",beepStr,"</li>");
   });
 });
